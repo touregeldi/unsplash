@@ -1,0 +1,12 @@
+.searcher {
+  height: 360px;
+  width: 100vw;
+  background-color: black;
+}
+
+.searchContainer {
+  width: 80%;
+  margin: 0 auto;
+  height: 100%;
+  position: relative;
+}

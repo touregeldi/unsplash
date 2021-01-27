@@ -1,0 +1,30 @@
+.container {
+  width: 80%;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.container h1 {
+  font-family: SF UI Display;
+  font-size: 72px;
+  line-height: 86px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  flex: 32%;
+  max-width: 32%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+  border-radius: 8px;
+}
