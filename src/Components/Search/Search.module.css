@@ -1,6 +1,6 @@
 .searcher {
   height: 360px;
-  width: 100vw;
+  width: 100%;
   background-color: black;
 }
 
@@ -84,10 +84,11 @@ input::placeholder {
   color: white;
   display: flex;
   position: absolute;
-  width: 100%;
+  width: 110%;
+
   left: 50%;
   top: 55%;
-  transform: translate(-50%, 0);
+  transform: translate(-40%, 0);
 }
 
 .helper::after {
@@ -166,4 +167,75 @@ input::placeholder {
 
 .heart:active {
   color: red;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 48%;
+    flex: 48%;
+    max-width: 48%;
+  }
+  input::placeholder {
+    font-family: SF UI Display;
+    font-size: 36px;
+    line-height: 43px;
+  }
+  .helper {
+    left: 50%;
+    width: 150%;
+  }
+  .input {
+    font-size: 36px;
+    padding: 0;
+  }
+  .helper::after {
+    background: linear-gradient(
+      to left,
+      rgb(0, 0, 0) 25%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    pointer-events: none;
+  }
+  .searcher {
+    height: 240px;
+  }
+  .form {
+    top: 10%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+  input::placeholder {
+    font-family: SF UI Display;
+    font-size: 36px;
+    line-height: 43px;
+  }
+  .helper {
+    left: 50%;
+    width: 150%;
+  }
+  .input {
+    font-size: 36px;
+    padding: 0;
+  }
+  .helper::after {
+    background: linear-gradient(
+      to left,
+      rgb(0, 0, 0) 25%,
+      rgba(0, 0, 0, 0) 100%
+    );
+    pointer-events: none;
+  }
+  .searcher {
+    height: 240px;
+  }
+  .form {
+    top: 10%;
+  }
 }

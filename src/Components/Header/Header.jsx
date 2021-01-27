@@ -13,15 +13,15 @@ function Header(props) {
 
                 <div className={style.nav}>
                     <div className={style.linkContainer}>
-                        <i className="fas fa-search"></i>
+                    <Link to='/' className={style.linkIcon}><i className="fas fa-search"></i></Link>
                         <Link to='/' className={style.link}>Поиск</Link>
                     </div>
                     <div className={style.linkContainer}>
-                        <i className="fas fa-heart"></i>
+                    <Link to='/favourite' className={style.linkIcon}><i className="fas fa-heart"></i></Link>
                         <Link to='/favourite' className={style.link}>Избранные</Link>
                     </div>
                     <div className={style.linkContainer}>
-                        <i className="fas fa-history"></i>
+                    <Link to='/history' className={style.linkIcon}><i className="fas fa-history"></i></Link>
                         <Link to='/history' className={style.link}>История поиска</Link>
                     </div>
                 </div>

@@ -28,3 +28,30 @@
   width: 100%;
   border-radius: 8px;
 }
+
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+  .container h1 {
+    font-family: SF UI Display;
+    font-size: 43px;
+    line-height: 86px;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+  .container h1 {
+    font-family: SF UI Display;
+    font-size: 36px;
+    line-height: 43px;
+  }
+}

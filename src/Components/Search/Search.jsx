@@ -4,38 +4,26 @@ import style from './Search.module.css'
 
 const client = createClient('563492ad6f9170000100000124a7d26fdf484dfda913bed85f4add36');
 
-function Search(props) {
+function Search({histories, updateHistories, favourite, updateFavourite}) {
     const [search, setSearch] = useState()
-    const [query, setQuery] = useState('london')
+    const [query, setQuery] = useState('Work')
     const [photos1, setPhotos1] = useState([])
     const [photos2, setPhotos2] = useState([])
     const [photos3, setPhotos3] = useState([])
     const [placeholder, setPlaceholder] = useState('Поиск')
-    const [helper, setHelper] = useState(['Wallpapers', 'Textures', 'Nature', 'Current', 'Architecture', 'Business', 'Film', "Animals", 'Travel', 'Fashion', 'Food'])
-    const [fav, setFav] = useState([])
 
     useEffect((params) => {
-        client.photos.search({ query, per_page: 30 }).then(photos => {
-            setPhotos1(photos.photos.slice(0,10))
-            setPhotos2(photos.photos.slice(10,20))
-            setPhotos3(photos.photos.slice(20,30))
+        client.photos.search({ query, per_page: 60 }).then(photos => {
+            setPhotos1(photos.photos.slice(0,20))
+            setPhotos2(photos.photos.slice(20,40))
+            setPhotos3(photos.photos.slice(40,60))
         })
     }, [query])
-
-    const func = props.favToParent;
-
-    useEffect((params) => {
-        if(fav.length === 0) return;
-        func(fav[fav.length - 1]);
-    },[fav, func])
 
     const submitHandler = e => {
         e.preventDefault()
         setQuery(search)
-        let temp = helper.concat()
-        temp.unshift(search);
-        setHelper(temp);
-        setSearch('')
+        updateHistories(search)
     }
 
     return (
@@ -54,7 +42,7 @@ function Search(props) {
                     </form>
                     <div className={style.helper}>
                         {
-                            helper.slice(0,15).map(word => <p onClick={e=>setQuery(word)} className={style.word}>{word}</p>)
+                            histories.map(word => <p onClick={e=>setQuery(word)} className={style.word}>{word}</p>)
                         }
                     </div>
                 </div>
@@ -74,12 +62,7 @@ function Search(props) {
                                             <div className={style.hiden}>
                                                 <a href={photo.photographer_url}>{photo.photographer}</a>
                                                 <div className={style.icons}>
-                                                    <i className={`fas fa-heart ${style.heart}`} onClick={e => { 
-                                                        const temp = fav.concat(); 
-                                                        if(temp.includes(photo)) return;
-                                                        temp.push(photo)
-                                                        setFav(temp)
-                                                        }}></i>
+                                                    <i className={`fas fa-heart ${style.heart}`} onClick={e => {updateFavourite(photo.src.medium)}}></i>
                                                     <i className="fas fa-expand-alt"></i>
                                                     <i className="fas fa-download"></i>
                                                 </div>
@@ -98,12 +81,7 @@ function Search(props) {
                                         <div className={style.hiden}>
                                             <a href={photo.photographer_url}>{photo.photographer}</a>
                                             <div className={style.icons}>
-                                                <i className={`fas fa-heart ${style.heart}`} onClick={e => { 
-                                                        const temp = fav.concat(); 
-                                                        if(temp.includes(photo)) return;
-                                                        temp.push(photo)
-                                                        setFav(temp)
-                                                        }}></i>
+                                                <i className={`fas fa-heart ${style.heart}`} onClick={e => {updateFavourite(photo.src.medium)}}></i>
                                                 <i className="fas fa-expand-alt"></i>
                                                 <i className="fas fa-download"></i>
                                             </div>
@@ -122,12 +100,7 @@ function Search(props) {
                                         <div className={style.hiden}>
                                             <a href={photo.photographer_url}>{photo.photographer}</a>
                                             <div className={style.icons}>
-                                                <i className={`fas fa-heart ${style.heart}`} onClick={e => { 
-                                                        const temp = fav.concat(); 
-                                                        if(temp.includes(photo)) return;
-                                                        temp.push(photo)
-                                                        setFav(temp)
-                                                        }} ></i>
+                                                <i className={`fas fa-heart ${style.heart}`} onClick={e => {updateFavourite(photo.src.medium)}}></i>
                                                 <i className="fas fa-expand-alt"></i>
                                                 <i className="fas fa-download"></i>
                                             </div>
