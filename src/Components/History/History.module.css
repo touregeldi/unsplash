@@ -132,6 +132,10 @@
     flex: 45%;
     max-width: 45%;
   }
+
+  .hiden {
+    width: 40%;
+  }
 }
 
 /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
@@ -140,5 +144,9 @@
     -ms-flex: 100%;
     flex: 100%;
     max-width: 100%;
+  }
+
+  .hiden {
+    width: 40%;
   }
 }
