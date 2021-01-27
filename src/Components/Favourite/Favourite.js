@@ -13,7 +13,7 @@ function Favourite(props) {
         setPhotos1(favs.slice(0,n))
         setPhotos2(favs.slice(n,2*n))
         setPhotos3(favs.slice(2*n,favs.length))
-    }, [])
+    }, [favs])
 
     console.log(photos1, photos2, photos3);
 
@@ -23,13 +23,13 @@ function Favourite(props) {
             <div className={style.gallery}>
                 <div className={style.row}>
                     <div className={style.column}>
-                        {photos1.length !== 0 && photos1.map(fav => (<img alt='gallery' src={fav.src.medium} key={fav.id}/>))}
+                        {photos3.length !== 0 && photos3.map(fav => (<img alt='gallery' src={fav.src.medium} key={fav.id}/>))}
                     </div>
                     <div className={style.column}>
                         {photos2.length !== 0 && photos2.map(fav => (<img alt='gallery' src={fav.src.medium} key={fav.id}/>))}
                     </div>
                     <div className={style.column}>
-                        {photos3.length !== 0 && photos3.map(fav => (<img alt='gallery' src={fav.src.medium} key={fav.id}/>))}
+                        {photos1.length !== 0 && photos1.map(fav => (<img alt='gallery' src={fav.src.medium} key={fav.id}/>))}
                     </div>
                 </div>
                 {/* {props.fav == undefined && props.favs.map(fav => <img alt='gallery' src={fav.src.medium} key={fav.src.medium}/>)} */}

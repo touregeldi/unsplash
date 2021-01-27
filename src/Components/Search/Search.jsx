@@ -22,10 +22,12 @@ function Search(props) {
         })
     }, [query])
 
+    const func = props.favToParent;
+
     useEffect((params) => {
         if(fav.length === 0) return;
-        props.favToParent(fav[fav.length - 1]);
-    },[fav])
+        func(fav[fav.length - 1]);
+    },[fav, func])
 
     const submitHandler = e => {
         e.preventDefault()

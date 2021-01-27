@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import style from './App.module.css';
 import Favourite from './Components/Favourite/Favourite';
